@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabaseClient';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext'; // Import useCart
 
-export default function Home() {
+export default function ShopPage() {
   const [products, setProducts] = useState([]);
   const { addToCart } = useCart(); // Use the addToCart function from the Cart Context
 
@@ -27,8 +27,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold mb-8">Welcome to ToolDocker!</h1>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-8">
+      <h1 className="text-4xl font-bold mb-8">Shop</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div
@@ -53,7 +53,7 @@ export default function Home() {
                   View Details
                 </Link>
                 <button
-                  onClick={() => addToCart(product)} // Call addToCart with the product
+                  onClick={() => addToCart(product)} // Add product to cart
                   className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
                 >
                   Add to Cart
@@ -63,6 +63,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-    </main>
+    </div>
   );
 }
